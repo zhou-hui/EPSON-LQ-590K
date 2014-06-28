@@ -1,0 +1,789 @@
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////       指令定义 Names       ////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+[SectionNames]
+SectionCount = 5
+Section01 = CHARACTER_MODE
+Section02 = PAGE_SETTINGS
+Section03 = SYSTEM_SETTINGS
+Section04 = COM_SETTINGS
+Section05 = OTHER_SETTINGS
+EnterInstruction = 1B 1D 1E 05 01 1B 1D 1F
+SaveInstruction = 1B 1D 1E 05 02 1B 1D 1F
+GetInstruction1 =
+GetInstruction2 =
+InstructionTail = 1B 1D 1F
+ParameterRule = High256
+Landscape_Compress = 0
+
+[Section01]
+ItemCount = 3
+Item01 = Font
+Item01Instruction = 1B 1D 1E 00 01
+Item02 = Eng_Pitch
+Item02Instruction = 1B 1D 1E 00 02
+Item03 = Chi_Pitch
+Item03Instruction = 1B 1D 1E 00 03
+
+[Section02]
+ItemCount = 5
+Item01 = Line_Spacing
+Item01Instruction = 1B 1D 1E 00 04
+Item02 = Form_Length
+Item02Instruction = 1B 1D 1E 00 05
+Item03 = Form_Lock
+Item03Instruction = 1B 1D 1E 00 11
+Item04 = Page_Skip
+Item04Instruction = 1B 1D 1E 00 06
+Item05 = Compress
+Item05Instruction = 1B 1D 1E 00 07
+
+[Section03]
+ItemCount = 16
+Item01 = Language
+Item01Instruction = 1B 1D 1E 02 09
+Item02 = Emulation
+Item02Instruction = 1B 1D 1E 00 0C
+Item03 = High_Quality
+Item03Instruction = 1B 1D 1E 01 06
+Item04 = Text_Dir
+Item04Instruction = 1B 1D 1E 00 08
+Item05 = Char_Mode
+Item05Instruction = 1B 1D 1E 00 0A
+Item06 = Intl_Char
+Item06Instruction = 1B 1D 1E 01 02
+Item07 = Char_Set
+Item07Instruction = 1B 1D 1E 01 03
+Item08 = Code_Page
+Item08Instruction = 1B 1D 1E 01 04
+Item09 = Quiet_Mode
+Item09Instruction = 1B 1D 1E 02 06
+Item10 = Copy_Mode
+Item10Instruction = 1B 1D 1E 00 10
+Item11 = Auto_LF
+Item11Instruction = 1B 1D 1E 02 07
+Item12 = Tear_Off
+Item12Instruction = 1B 1D 1E 02 01
+Item13 = Tear_Pos
+Item13Instruction = 1B 1D 1E 02 0F
+Item14 = Cover_Open
+Item14Instruction = 1B 1D 1E 02 04
+Item15 = Black_Mark
+Item15Instruction = 1B 1D 1E 02 0D
+Item16 = Pin_Switch
+Item16Instruction = 1B 1D 1E 04 03
+
+[Section04]
+ItemCount = 5
+Item01 = Baud_Rate
+Item01Instruction = 1B 1D 1E 03 01
+Item02 = Parity
+Item02Instruction = 1B 1D 1E 03 02
+Item03 = Data_Bit
+Item03Instruction = 1B 1D 1E 03 03
+Item04 = Stop_Bit
+Item04Instruction = 1B 1D 1E 03 04
+Item05 = Protocol
+Item05Instruction = 1B 1D 1E 03 05
+
+[Section05]
+ItemCount = 3
+Item01 = Head_Blank
+Item01Instruction = 1B 1D 1E 04 02 01
+Item02 = Tail_Blank
+Item02Instruction = 1B 1D 1E 04 02 00
+Item03 = Head_Pin
+Item03Instruction = 1B 1D 1E 04 01
+Item03ParameterCount = 3
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+;***************************    选项过滤定义文件 Filter      *****************************
+//////////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Filter]
+SectionEnable =			1
+;1 英文字体 Font
+Font = 					1
+;2 英文间距 Eng_Pitch
+Eng_Pitch = 			1
+;3 中文间距 Chi_Pitch
+Chi_Pitch = 			1
+
+;************************************************************************************************
+
+[PAGE_SETTINGS_Filter]
+SectionEnable =			1
+; 行间距 Line_Spacing
+Line_Spacing = 			1
+; 页长 Form_Length
+Form_Length = 			1
+; 页长锁定 Form_Lock
+Form_Lock = 			1
+; 跳过页缝 Page_Skip
+Page_Skip = 			1
+; 压缩打印 Compress
+Compress = 				1
+
+;************************************************************************************************
+
+[SYSTEM_SETTINGS_Filter]
+SectionEnable =			1
+;菜单语言 Language
+Language =              1
+;高质量打印
+High_Quality＝　　　　　1
+;仿真 Emulation
+Emulation = 			1
+; 打印方向 Text_Dir
+Text_Dir = 				1
+; 打印模式 Char_Mode
+Char_Mode = 			1
+; 国际字符集 Intl_Char
+Intl_Char = 			1
+; 字符表 Char_Set
+Char_Set =              1
+;04 代码页 Code_Page
+Code_Page = 			1
+; 静音方式 Quiet_Mode
+Quiet_Mode = 			1
+;拷贝能力
+Copy_Mode  =            1
+; 自动换行 Auto_LF
+Auto_LF = 				1
+; 撕纸功能 Tear_Off
+Tear_Off = 				1
+;撕纸位调整  Tear_Pos
+Tear_Pos = 				1
+; 开盖检测 Cover_Open
+Cover_Open = 			1
+;黑标 Black_Mark
+Black_Mark = 			1
+; 打印针轮换
+Pin_Switch = 			1
+
+;************************************************************************************************
+
+[COM_SETTINGS_Filter]
+SectionEnable =			1
+;01 波特率 Baud_Rate
+Baud_Rate = 			1
+;02 奇偶检验 Parity
+Parity = 				1
+;03 数据位数 Data_Bit
+Data_Bit = 				1
+;04 停止位 Stop_Bit
+Stop_Bit = 				1
+;05 协议 Protocol
+Protocol = 				1
+
+;************************************************************************************************
+
+[OTHER_SETTINGS_Filter]
+SectionEnable =			1
+;01前进纸头出量 Head_Blank
+Head_Blank =            1
+;02后进纸头出量 Tail_Blank
+Tail_Blank =  			1
+;03 断针补偿 Head_Pin
+Head_Pin = 				1
+
+////////////////////////////////////////////////////////////////////////////////////
+;***************************       参数规则定义 Rule      **************************
+////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Rule_CN]
+;1 英文字体 Font
+Font_RuleType = 			Enum
+Font_Rule =     			0=ROMAN  1=SANS SER  2=COURIER  3=PRESTIGE  4=SCRIPT  5=OCR-B  6=OCR-A  7=ORATOR
+;2 英文间距 Eng_Pitch
+Eng_Pitch_RuleType = 		Enum
+Eng_Pitch_Rule =        	0=10 CPI  1=12 CPI  2=15 CPI  3=比例项
+;3 中文间距 Chi_Pitch
+Chi_Pitch_RuleType = 		Enum
+Chi_Pitch_Rule =     		0=6.7 CPI  1=7.5 CPI
+
+;************************************************************************************************
+[PAGE_SETTINGS_Rule_CN]
+; 行间距 Line_Spacing
+Line_Spacing_RuleType = 	Enum
+Line_Spacing_Rule =        	0=6 LPI  1=8 LPI
+; 页长 Form_Length 8=8.5 英寸
+Form_Length_RuleType = 		Enum
+Form_Length_Rule =     		0=3 英寸  1=3.5 英寸  2=11/3 英寸  3=4 英寸  4=5 英寸  5=5.5 英寸  6=6 英寸  7=7 英寸 8=8.5英寸  9=11英寸  10=A4  11=12 英寸
+;页长锁定 Form_Lock
+Form_Lock_RuleType = 		Enum
+Form_Lock_Rule =　          0=关  1=开
+; 跳过页缝 Page_Skip
+Page_Skip_RuleType = 		Enum
+Page_Skip_Rule =     		0=关  1=开
+; 压缩打印 Compress
+Compress_RuleType = Enum
+Compress_Rule =       	    0=关  1=开
+
+;************************************************************************************************
+
+[SYSTEM_SETTINGS_Rule_CN]
+;菜单语言 Language
+Language_RuleType = Enum
+Language_Rule 		= 0=英语  1=汉语
+; 仿真 Emulation
+Emulation_RuleType = 		Enum
+Emulation_Rule = 			0=EPSON  3=IBM
+;高质量打印
+High_Quality_RuleType = 	Enum
+High_Quality_Rule     =     0=关  1=开
+; 打印方向 Text_Dir
+Text_Dir_RuleType = 		Enum
+Text_Dir_Rule =       		0=双向  1=单向  2=自动
+; 打印模式 Char_Mode
+Char_Mode_RuleType = 		Enum
+Char_Mode_Rule =       		0=ASCII  1=汉字
+; 国际字符集 Intl_Char
+Intl_Char_RuleType = 		Enum
+Intl_Char_Rule=     		0=美国  1=法国  2=德国  3=英国  4=丹麦I  5=瑞典  6=意大利  7=西班牙I  8=日本  9=挪威  10=丹麦II  11=西班牙II  12=拉丁美洲  13=韩国  14=LEGAL  15=荷兰  16=土耳其
+; 字符表 Char_Set
+Char_Set_RuleType = 		Enum
+Char_Set_Rule =           	0=斜体  1=图形
+;04 代码页 Code_Page
+Code_Page_RuleType = 		Enum
+Code_Page_Rule =      		0=U.S.A.  1=MULTI  2=PORTUGAL  3=CANADA  4=NORWAY  5=EAST EURO  6=CYRILLIC  7=RUSSIAN  8=HUNGARY  9=KAMENICKY  10=TURKEY  11=ICELAND  12=BULGARIA  13=MAZOVIA  14=GRK 437  15=GRK 851  16=GRK 8859-7  17=GRK 1253  18=ARAB NLS  19=ARAB EXT  20=WINLAT1  21=WINLAT2  22=ISO LTN1  23=ISO LTN2  24=TUR8859-9  25=ISO LTN9  26=KBL  27=LATIN_7
+; 静音方式 Quiet_Mode
+Quiet_Mode_RuleType = 		Enum
+Quiet_Mode_Rule =          	0=关  1=开
+;复写能力
+Copy_Mode_RuleType = Enum
+Copy_Mode_Rule =            0=关  1=开
+; 自动换行 Auto_LF
+Auto_LF_RuleType = 			Enum
+Auto_LF_Rule =          	0=关  1=开
+; 撕纸功能 Tear_Off
+Tear_Off_RuleType = 		Enum
+Tear_Off_Rule =   			0=关  2=开
+; 撕纸位调整 Tear_Pos
+Tear_Pos_RuleType = 		Enum
+Tear_Pos_Rule =   			0=关  1=按内容（不增加行数）  2=按内容1（增加1行）  3=按内容2（增加2行）  4=按内容3（增加3行）  5=按页长（按页长走纸）
+; 开盖检测 Cover_Open
+Cover_Open_RuleType = 		Enum
+Cover_Open_Rule =         	0=关  1=开
+;黑标检测 Black_Mark
+Black_Mark_RuleType = 		Enum
+Black_Mark_Rule =          	0=关  1=开
+; 打印针轮换
+Pin_Switch_RuleType = 		Enum
+Pin_Switch_Rule = 			0=关  1=开
+
+;************************************************************************************************
+
+[COM_SETTINGS_Rule_CN]
+;01 波特率 Baud_Rate 0=1200 BPS  1=2400 BPS
+Baud_Rate_RuleType = 		Enum
+Baud_Rate_Rule =   			0=1200 BPS  1=2400 BPS  2=4800 BPS  3=9600 BPS  4=19200 BPS
+;02 奇偶检验 Parity
+Parity_RuleType = 			Enum
+Parity_Rule =           	0=无  1=奇  2=偶
+;03 数据位数 Data_Bit
+Data_Bit_RuleType = 		Enum
+Data_Bit_Rule =      		0=8 位  1=7 位
+;04 停止位 Stop_Bit
+Stop_Bit_RuleType = 		Enum
+Stop_Bit_Rule =         	0=1 位  1=2 位
+;05 协议 Protocol
+Protocol_RuleType = 		Enum
+Protocol_Rule =             0=XON/XOFF  1=硬件
+
+;************************************************************************************************
+
+[OTHER_SETTINGS_Rule_CN]
+;01前进纸头出量 Head_Blank
+Head_Blank_RuleType =  Serial
+Head_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60英寸
+;02后进纸头出量 Tail_Blank
+Tail_Blank_RuleType =  Serial
+Tail_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60英寸
+;03 断针补偿 Head_Pin
+Head_Pin_RuleType = 		Enum
+Head_Pin_Rule =   	  1=PIN 1  2=PIN 2  3=PIN 3  4=PIN 4  5=PIN 5  6=PIN 6  7=PIN 7  8=PIN 8  9=PIN 9  10=PIN 10  11=PIN 11  12=PIN 12  13=PIN 13  14=PIN 14  15=PIN 15  16=PIN 16  17=PIN 17  18=PIN 18  19=PIN 19  20=PIN 20  21=PIN 21  22=PIN 22  23=PIN 23  24=PIN 24
+////////////////////////////////////////////////////////////////////////////////////
+;*************************       英文参数规则定义 Rule      ************************
+////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Rule_EN]
+;1 英文字体 Font
+Font_RuleType = 			Enum
+Font_Rule =     			0=ROMAN  1=SANS SER  2=COURIER  3=PRESTIGE  4=SCRIPT  5=OCR-B  6=OCR-A  7=ORATOR
+;2 英文间距 Eng_Pitch
+Eng_Pitch_RuleType = 		Enum
+Eng_Pitch_Rule =        	0=10 CPI  1=12 CPI  2=15 CPI  3=PROPORTIONAL
+;3 中文间距 Chi_Pitch
+Chi_Pitch_RuleType = 		Enum
+Chi_Pitch_Rule =     		0=6.7 CPI  1=7.5 CPI
+
+;************************************************************************************************
+[PAGE_SETTINGS_Rule_EN]
+; 行间距 Line_Spacing
+Line_Spacing_RuleType = 	Enum
+Line_Spacing_Rule =        	0=6 LPI  1=8 LPI
+; 页长 Form_Length 8=8.5 英寸
+Form_Length_RuleType = 		Enum
+Form_Length_Rule =     		0=3 INCH  1=3.5 INCH  2=11/3 INCH  1=3.5 INCH  3=4 INCH  4=5 INCH  5=5.5 INCH  6=6 INCH  7=7 INCH  8=8.5 INCH  9=LETTER  10=A4  11=12 INCH  12=14 INCH
+; 页长锁定 Form_Lock
+Form_Lock_RuleType = 		Enum
+Form_Lock_Rule =　　　　　　0=OFF  1=ON
+; 跳过页缝 Page_Skip
+Page_Skip_RuleType = 		Enum
+Page_Skip_Rule =     		0=OFF  1=ON
+; 压缩打印 Compress
+Compress_RuleType = Enum
+Compress_Rule =       	    0=OFF  1=ON
+
+;************************************************************************************************
+[SYSTEM_SETTINGS_Rule_EN]
+;菜单语言 Language
+Language_RuleType = Enum
+Language_Rule 		= 0=ENGLISH  1=CHINESE
+; 仿真 Emulation
+Emulation_RuleType = 		Enum
+Emulation_Rule = 			0=EPSON  3=IBM
+;高质量打印
+High_Quality_RuleType = 	Enum
+High_Quality_Rule     =     0=OFF  1=ON
+; 打印方向 Text_Dir
+Text_Dir_RuleType = 		Enum
+Text_Dir_Rule =       		0=BI-DIR  1=UNI-DIR  2=AUTO
+; 打印模式 Char_Mode
+Char_Mode_RuleType = 		Enum
+Char_Mode_Rule =       		0=ASCII  1=CHINA
+; 国际字符集 Intl_Char
+Intl_Char_RuleType = 		Enum
+Intl_Char_Rule=     		0=U.S.A  1=FRANCE  2=GERMANY  3=U.K.  4=DENMARK 1  5=SWEDEN  6=ITALY  7=SPAIN 1  8=JAPAN  9=NORWAY  10=DENMARK 2  11=SPAIN 2  12=LATIN AM  13=KOREA  14=LEGAL  15=HOLAND  16=TURKEY
+; 字符表 Char_Set
+Char_Set_RuleType = 		Enum
+Char_Set_Rule =           	0=ITALICS  1=GRAPHICS
+;04 代码页 Code_Page
+Code_Page_RuleType = 		Enum
+Code_Page_Rule =      		0=U.S.A.  1=MULTI  2=PORTUGAL  3=CANADA  4=NORWAY  5=EAST EURO  6=CYRILLIC  7=RUSSIAN  8=HUNGARY  9=KAMENICKY  10=TURKEY  11=ICELAND  12=BULGARIA  13=MAZOVIA  14=GRK 437  15=GRK 851  16=GRK 8859-7  17=GRK 1253  18=ARAB NLS  19=ARAB EXT  20=WINLAT1  21=WINLAT2  22=ISO LTN1  23=ISO LTN2  24=TUR8859-9  25=ISO LTN9  26=KBL  27=LATIN_7
+; 静音方式 Quiet_Mode
+Quiet_Mode_RuleType = 		Enum
+Quiet_Mode_Rule =          	0=OFF  1=ON
+;复写能力
+Copy_Mode_RuleType = Enum
+Copy_Mode_Rule =    0=OFF  1=ON
+; 自动换行 Auto_LF
+Auto_LF_RuleType = 			Enum
+Auto_LF_Rule =          	0=OFF  1=ON
+; 撕纸功能 Tear_Off
+Tear_Off_RuleType = 		Enum
+Tear_Off_Rule =   			0=OFF  2=ON
+; 撕纸位调整 Tear_Pos
+Tear_Pos_RuleType = 		Enum
+Tear_Pos_Rule =   			0=OFF  1=BY CONT 2=BY CONT1  3=BY CONT2  4=BY CONT3  5=FORM LEN
+; 开盖检测 Cover_Open
+Cover_Open_RuleType = 		Enum
+Cover_Open_Rule =         	0=OFF  1=ON
+;黑标检测 Black_Mark
+Black_Mark_RuleType = 		Enum
+Black_Mark_Rule =          	0=OFF  1=LEFT  2=RIGHT
+; 打印针轮换
+Pin_Switch_RuleType = 		Enum
+Pin_Switch_Rule = 			0=OFF  1=ON
+
+;************************************************************************************************
+[COM_SETTINGS_Rule_EN]
+;01 波特率 Baud_Rate 0=1200 BPS  1=2400 BPS
+Baud_Rate_RuleType = 		Enum
+Baud_Rate_Rule =   			4=19200 BPS 3=9600 BPS  2=4800 BPS  1=2400 BPS  0=1200 BPS
+;02 奇偶检验 Parity
+Parity_RuleType = 			Enum
+Parity_Rule =           	0=NONE  1=ODD  2=EVEN
+;03 数据位数 Data_Bit
+Data_Bit_RuleType = 		Enum
+Data_Bit_Rule =      		0=8 BIT  1=7 BIT
+;04 停止位 Stop_Bit
+Stop_Bit_RuleType = 		Enum
+Stop_Bit_Rule =         	0=1 BIT  1=2 BIT
+;05 协议 Protocol
+Protocol_RuleType = 		Enum
+Protocol_Rule =             0=XON/XOFF  1=DTR
+
+;************************************************************************************************
+
+[OTHER_SETTINGS_Rule_EN]
+;01前进纸头出量 Head_Blank
+Head_Blank_RuleType =  Serial
+Head_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60 INCH
+;02后进纸头出量 Tail_Blank
+Tail_Blank_RuleType =  Serial
+Tail_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60 INCH
+;01 断针补偿 Head_Pin
+Head_Pin_RuleType = 		Enum
+Head_Pin_Rule =   		　1=PIN 1  2=PIN 2  3=PIN 3  4=PIN 4  5=PIN 5  6=PIN 6  7=PIN 7  8=PIN 8  9=PIN 9  10=PIN 10  11=PIN 11  12=PIN 12  13=PIN 13  14=PIN 14  15=PIN 15  16=PIN 16  17=PIN 17  18=PIN 18  19=PIN 19  20=PIN 20  21=PIN 21  22=PIN 22  23=PIN 23  24=PIN 24
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+;********************************         提示信息配置文件 Lang       *******************************
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Lang_CN]
+Title = 字体格式
+Note = 设置打印机的打印字符模式      请选择一个子项目
+;1 英文字体 Font
+Font_Title = 英文字体
+Font_Note =  选择西文打印字体
+;2 英文间距 Eng_Pitch
+Eng_Pitch_Title = 英文间距
+Eng_Pitch_Note =  选择西文字体间距
+;3 中文间距 Chi_Pitch
+Chi_Pitch_Title = 中文间距
+Chi_Pitch_Note =  选择中文打印的字体间距
+;****************************************************
+
+[PAGE_SETTINGS_Lang_CN]
+Title = 页面设置
+Note = 设置打印机的纸张设置       请选择一个子项目
+; 行间距 Line_Spacing
+Line_Spacing_Title = 行距
+Line_Spacing_Note =  选择字符行间距
+; 页长 Form_Length
+Form_Length_Title = 页长
+Form_Length_Note =  选择默认的页面长度
+; 页长锁定 Form_Lock
+Form_Lock_Title = 页长锁定
+Form_Lock_Note =  选择是否使用页长锁定功能
+; 跳过页缝 Page_Skip
+Page_Skip_Title = 跳过页缝
+Page_Skip_Note =  选择是否自动跳过页缝
+; 压缩打印 Compress
+Compress_Title = 压缩打印
+Compress_Note =  选择是否使用横向压缩打印功能（需要重新进纸）
+
+;****************************************************
+
+[SYSTEM_SETTINGS_Lang_CN]
+Title = 系统设置
+Note = 设置打印机的其他辅助功能      请选择一个子项目
+;菜单语言 Language
+Language_Title = 语言
+Language_Note = 选择打印机菜单的显示和打印语言
+; 仿真 Emulation
+Emulation_Title = 仿真
+Emulation_Note =  选择打印机使用的仿真模式
+;高质量打印
+High_Quality_Title =高质量打印
+High_Quality_Note = 选择是否使用高质量打印功能
+; 字符打印方向 Text_Dir
+Text_Dir_Title = 打印方向
+Text_Dir_Note =  选择字符打印方向
+; 打印模式 Char_Mode
+Char_Mode_Title = 打印模式
+Char_Mode_Note =  选择字符打印模式
+; 国际字符集 Intl_Char
+Intl_Char_Title = 国际字符集
+Intl_Char_Note =  选择国际字符集
+; 字符表 Char_Set
+Char_Set_Title = 字符表
+Char_Set_Note =  选择字符表
+;04 代码页 Code_Page
+Code_Page_Title = 代码页
+Code_Page_Note =  选择使用的代码页
+; 静音方式 Quiet_Mode
+Quiet_Mode_Title = 静音方式
+Quiet_Mode_Note =  打印静音方式设置
+；复写能力Copy_Mode
+Copy_Mode_Title =拷贝模式
+Copy_Mode_Note = 选择是否使用拷贝模式
+; 自动换行 Auto_LF
+Auto_LF_Title = 自动换行
+Auto_LF_Note =  打印自动换行设置
+; 撕纸功能 Tear_Off
+Tear_Off_Title = 进纸至撕纸位
+Tear_Off_Note =  打印完成后自动走到撕纸位
+; 撕纸位置 Tear_Pos
+Tear_Pos_Title = 撕纸位位置
+Tear_Pos_Note =  选择撕纸位位置
+; 开盖传感器 Cover_Open
+Cover_Open_Title = 开盖传感器
+Cover_Open_Note =  选择是否使用开盖检测功能
+;黑标检测 Black_Mark
+Black_Mark_Title = 黑标检测
+Black_Mark_Note =  选择是否使用后进纸黑标检测功能
+; 打印针轮换
+Pin_Switch_Title = 针轮换
+Pin_Switch_Note = 打印是否使用针轮换技术
+
+;****************************************************
+
+[COM_SETTINGS_Lang_CN]
+Title = 串口设置
+Note = 设置打印机的串口参数      请选择一个子项目
+;01 波特率 Baud_Rate
+Baud_Rate_Title = 波特率
+Baud_Rate_Note =  选择打印机波特率			* 请不要通过串口改变此项 *
+;02 奇偶检验 Parity
+Parity_Title = 奇偶检验
+Parity_Note =  选择奇偶检验位数			* 请不要通过串口改变此项 *
+;03 数据位数 Data_Bit
+Data_Bit_Title = 数据位数
+Data_Bit_Note =  选择数据位数				* 请不要通过串口改变此项 *
+;04 停止位 Stop_Bit
+Stop_Bit_Title = 停止位数
+Stop_Bit_Note =  选择停止位数				* 请不要通过串口改变此项 *
+;05 协议 Protocol
+Protocol_Title = 协议
+Protocol_Note =  选择数据校验协议			* 请不要通过串口改变此项 *
+
+[OTHER_SETTINGS_Lang_CN]
+Title = 其他设置
+Note = 设置打印机的其它功能      请选择一个子项目
+;01前进纸头出量 Head_Blank
+Head_Blank_Title = 单页纸头出量
+Head_Blank_Note =  选择前进纸头出量值
+;02后进纸头出量Tail_Blank
+Tail_Blank_Title = 连续纸头出量
+Tail_Blank_Note =  选择连续纸头出量值
+;03 断针补偿 Head_Pin
+Head_Pin_Title = 断针补偿
+Head_Pin_Note =  打印头断针补偿设置
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+*****************************         英文提示信息配置文件 Lang       *******************************
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Lang_EN]
+Title = CHARACTER
+Note = Print character mode     Please select a sub item
+;1 英文字体 Font
+Font_Title = FONT
+Font_Note =  Select font type
+;2 英文间距 Eng_Pitch
+Eng_Pitch_Title = ENG PITCH
+Eng_Pitch_Note =  Select English font pitch
+;3 中文间距 Chi_Pitch
+Chi_Pitch_Title = CHI PITCH
+Chi_Pitch_Note =  Select Chinese font pitch
+
+;****************************************************
+
+[PAGE_SETTINGS_Lang_EN]
+Title = PAGE LAYOUT
+Note = Select printer Page settings     Please select a sub item
+;4 行间距 Line_Spacing
+Line_Spacing_Title = LINE SPACING
+Line_Spacing_Note =  Select line spacing
+;5 页长 Form_Length
+Form_Length_Title = FORM LENGTH
+Form_Length_Note =  Select form length
+; 页长锁定 Form_Lock
+Form_Lock_Title = FORM LOCK
+Form_Lock_Note =  Select whether to use form lock function
+;6 跳过页缝 Page_Skip
+Page_Skip_Title = PAGE SKIP
+Page_Skip_Note =  Select whether to skip page
+;11 压缩打印 Compress
+Compress_Title = COMPRESS PRI
+Compress_Note =  Select whether use  compress print
+
+;****************************************************
+
+[SYSTEM_SETTINGS_Lang_EN]
+Title = SYSTEM SETUP
+Note = Select printer system settings     Please select a sub item
+;菜单语言 Language
+Language_Title = LANGUAGE
+Language_Note = Select printer menu language
+;11 仿真 Emulation
+Emulation_Title = EMULATION
+Emulation_Note =  Select printer Emulation
+;高质量打印
+High_Quality_Title =HIGH QUALITY
+Emulation_Note = Select whether to use high quality printing
+; 字符方向 Text_Dir
+Text_Dir_Title = TEXT DIR
+Text_Dir_Note =  Select text direction
+; 打印模式 Char_Mode
+Char_Mode_Title = CHAR MODE
+Char_Mode_Note =  Select character mode
+; 国际字符集 Intl_Char
+Intl_Char_Title = INTL CHAR SET
+Intl_Char_Note =  Select international character
+; 字符表 Char_Set
+Char_Set_Title = CHARACTER SET
+Char_Set_Note =  Select character set
+;04 代码页 Code_Page
+Code_Page_Title = CODE PAGE
+Code_Page_Note =  Select code page
+; 静音方式 Quiet_Mode
+Quiet_Mode_Title = QUIET MODE
+Quiet_Mode_Note =  Select whether to use quiet mode
+；复写能力Copy_Mode
+Copy_Mode_Title = COPY MODE
+Copy_Mode_Note = Select whether to use copy mode
+; 自动换行 Auto_LF
+Auto_LF_Title = AUTO LF
+Auto_LF_Note =  Select whether auto LF
+; 撕纸功能 Tear_Off
+Tear_Off_Title = TEAR OFF
+Tear_Off_Note =  Feed paper to the tear position after finishing printing
+; 撕纸位置 Tear_Pos
+Tear_Pos_Title = TEAR POS
+Tear_Pos_Note =  Select the tear position
+; 开盖检测 Cover_Open
+Cover_Open_Title = COVER-OPEN SENSOR
+Cover_Open_Note =  Select whether use cover open sensor
+;黑标检测 Black_MARK
+Black_Mark_Title = BLACK MARK
+Black_Mark_Note =  Select whether use Black mark detect
+; 打印针轮换
+Pin_Switch_Title = PIN SWITCH
+Pin_Switch_Note = Select whether use auto pin replacement
+
+;****************************************************
+
+[COM_SETTINGS_Lang_EN]
+Title =  SERIAL I/F
+Note = Select printer serial I/F settings      Please select a sub item
+;01 波特率 Baud_Rate
+Baud_Rate_Title = BAUD RATE
+Baud_Rate_Note =  Select baud rate
+;02 奇偶检验 Parity
+Parity_Title = PARITY
+Parity_Note =  Select parity
+;03 数据位数 Data_Bit
+Data_Bit_Title = DATA BIT
+Data_Bit_Note =  Select data bits
+;04 停止位数 Stop_Bit
+Stop_Bit_Title = STOP BIT
+Stop_Bit_Note =  Select stop bits
+;05 协议 Protocol
+Protocol_Title = PROTOCOL
+Protocol_Note =  Select protocol
+
+[OTHER_SETTINGS_Lang_EN]
+Title = OTHER SETTINGS
+Note = Select printer's other settings      Please select a sub item
+;01前进纸头出量 Head_Blank
+Head_Blank_Title = Head Blank of Single sheet paper
+Head_Blank_Note =  Select Head Blank value of Single sheet paper
+;02后进纸头出量 Tail_Blank
+Tail_Blank_Title = Head Blank of trail paper
+Tail_Blank_Note =  Select Head Blank value of trail paper
+;03 断针补偿 Head_Pin
+Head_Pin_Title = Head pin
+Head_Pin_Note =  Select whether use auto pin break replenish
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+;******************************       选项默认值定义文件 Default     *****************************
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+[CHARACTER_MODE_Default]
+;1 英文字体 Font
+Font = 0
+Font_Rule =     			0=ROMAN  1=SANS SER  2=COURIER  3=PRESTIGE  4=SCRIPT  5=OCR-B  6=OCR-A  7=ORATOR
+;2 英文间距 Eng_Pitch
+Eng_Pitch = 0
+Eng_Pitch_Rule =        	0=10CPI  1=12CPI  2=15CPI  3=Proportional
+;3 中文间距 Chi_Pitch
+Chi_Pitch = 0
+Chi_Pitch_Rule =     		0=6.7CPI  1=7.5CPI
+;************************************************************************************************
+
+[PAGE_SETTINGS_Default]
+; 行间距 Line_Spacing
+Line_Spacing = 	0
+Line_Spacing_Rule =        	0=6 LPI  1=8 LPI
+; 页长 Form_Length 8=8.5 英寸
+Form_Length = 9
+Form_Length_Rule =     		0=3 英寸   1=3.5 英寸   2=11/3 英寸   3=4 英寸  4=5 英寸  5=5.5 英寸  6=6 英寸  7=7 英寸 8=8.5英寸  9=11英寸  10=A4  11=12 英寸  12=14 英寸
+; 页长锁定 Form_Lock
+Form_Lock= 0
+Form_Lock_Rule =            0=关  1=开
+; 跳过页缝 Page_Skip
+Page_Skip = 0
+Page_Skip_Rule =     		0=关  1=开
+; 压缩打印 Compress
+Compress = 0
+Compress_Rule =     	    0=关  1=开
+;************************************************************************************************
+
+[SYSTEM_SETTINGS_Default]
+; 菜单语言 Language
+Language = 1
+Language_Rule = 			0=英语  1=汉语
+; 仿真 Emulation
+Emulation = 0
+Emulation_Rule = 			0=EPSON  1=OKI 2=OLIVETTI  3=IBM
+;高质量打印
+High_Quality=0
+High_Quality_Rule=          0=OFF  1=ON
+; 字符打印方向 Text_Dir
+Text_Dir = 2
+Text_Dir_Rule =       		0=双向  1=单向  2=自动
+; 打印模式 Char_Mode
+Char_Mode = 1
+Char_Mode_Rule =       		0=ASCII  1=汉字
+;02 国际字符集 Intl_Char
+Intl_Char = 0
+Intl_Char_Rule=     		0=美国  1=法国  2=德国  3=英国  4=丹麦I  5=瑞典  6=意大利  7=西班牙I  8=日本  9=挪威  10=丹麦II  11=西班牙II  12=拉丁美洲  13=韩国  14=LEGAL
+;03 字符表 Char_Set
+Char_Set = 1
+Char_Set_Rule =           	0=斜体  1=图形
+;04 代码页 Code_Page
+Code_Page = 0
+Code_Page_Rule =      		0=U.S.A.  1=MULTI  2=PORTUGAL  3=CANADA  4=NORWAY  5=EAST EURO  6=CYRILLIC  7=RUSSIAN  8=HUNGARY  9=KAMENICKY  10=TURKEY  11=ICELAND  12=BULGARIA  13=MAZOVIA  14=GRK 437  15=GRK 851  16=GRK 8859-7  17=GRK 1253  18=ARAB NLS  19=ARAB EXT  20=WIN LAT1  21=WIN LAT2  22=ISO LTN1  23=ISO LTN2  24=TUR8859-9  25=ISO LTN9  26=KBL  27=LATIN_7
+;06 静音方式 Quiet_Mode
+Quiet_Mode = 0
+Quiet_Mode_Rule =          	0=OFF  1=ON
+;06 拷贝模式Copy_Mode
+Copy_Mode = 0
+Copy_Mode_Rule =          	0=OFF  1=ON
+;07 自动换行 Auto_LF
+Auto_LF = 0
+Auto_LF_Rule =          	0=OFF  1=ON
+; 撕纸功能 Tear_Off
+Tear_Off =2
+Tear_Off_Rule =   			0=OFF  2=ON
+; 撕纸功能 Tear_Pos
+Tear_Pos =0
+Tear_Pos_Rule =   			0=关  1=按内容（不增加行数）  2=按内容1（增加1行）  3=按内容2（增加2行）  4=按内容3（增加3行）  5=按页长（按页长走纸）
+;02 开盖检测 Cover_Open
+Cover_Open = 1
+Cover_Open_Rule =         	0=OFF  1=ON
+;黑标检测 Black_Mark
+Black_Mark = 0
+Black_Mark_Rule =  			0=关  1=开
+;04 打印针轮换
+Pin_Switch = 0
+Pin_Switch_Note = 			0=OFF  1=ON
+
+;************************************************************************************************
+
+[COM_SETTINGS_Default]
+;01 波特率 Baud_Rate 0=1200BPS  1=2400BPS
+Baud_Rate = 3
+Baud_Rate_Rule =   			n=0 1200BPS  n=1 2400BPS  2=4800BPS  3=9600BPS  4=19200BPS
+;02 奇偶检验 Parity
+Parity = 0
+Parity_Rule =           	0=无  1=奇校验  2=偶检验
+;03 数据位数 Data_Bit
+Data_Bit = 0
+Data_Bit_Rule =      		0=8位  1=7位
+;04 停止位 Stop_Bit
+Stop_Bit = 0
+Stop_Bit_Rule =         	0=1位  1=2位
+;05 协议 Protocol
+Protocol = 1
+Protocol_Rule =             0=XON/XOFF  1=DTR
+
+[OTHER_SETTINGS_Default]
+;01前进纸头出量 Head_Blank
+Head_Blank = 20
+Head_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60 INCH
+;02后进纸头出量Tail_Blank
+Tail_Blank = 20
+Tail_Blank_Rule =  Min=0  Max=80  Step=1  Title= /60 INCH
+;03 断针补偿 Head_Pin
+Head_Pin = 0
+Head_Pin_Rule =    1=PIN 1  2=PIN 2  3=PIN 3  4=PIN 4  5=PIN 5  6=PIN 6  7=PIN 7  8=PIN 8  9=PIN 9  10=PIN 10  11=PIN 11  12=PIN 12  13=PIN 13  14=PIN 14  15=PIN 15  16=PIN 16  17=PIN 17  18=PIN 18  19=PIN 19  20=PIN 20  21=PIN 21  22=PIN 22  23=PIN 23  24=PIN 24
+
+
+

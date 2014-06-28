@@ -1,0 +1,152 @@
+; ESCP5BC.INF for Windows 2000
+
+[Version]
+Signature="$Windows NT$"
+Provider=%EPSON%
+LayoutFile=layout.inf
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+
+;
+; Manufacturer section.
+;
+; This section lists all of the manufacturers 
+; that we will display in the Dialog box
+;
+
+[Manufacturer]
+%EPSON%=EPSON
+
+;
+; Model sections. 
+; 
+; Each section here corresponds with an entry listed in the
+; [Manufacturer] section, above. The models will be displayed in the order
+; that they appear in the INF file.
+;
+
+[EPSON]
+"EPSON LQ-580K+ ESC/P 2" = ESCP5B.GPD,LPTENUM\EPSONLQ-580K+5EC4,EPSONLQ-580K+5EC4,EPSON_LQ-580
+
+;
+; Installer Sections
+;
+; These sections control file installation, and reference all files that
+; need to be copied. The section name will be assumed to be the driver
+; file, unless there is an explicit DriverFile section listed.
+;
+
+[ESCP5B.GPD]
+CopyFiles=@ESCP5B.DLL,@ESCP5B.GPD,UNIDRV,LANMON,STM3_SYS32,EPSETUP,EPSETUP_VS
+DataSection=UNIDRV_DATA_5B
+DataFile=ESCP5B.GPD
+
+[ESCP5C.GPD]
+CopyFiles=@ESCP5C.DLL,@ESCP5C.GPD,UNIDRV,LANMON,STM3_SYS32,EPSETUP,EPSETUP_VS
+DataSection=UNIDRV_DATA_5C
+DataFile=ESCP5C.GPD
+
+; Copy Sections
+;
+; Lists of files that are actually copied. These sections are referenced
+; from the installer sections, above. Only create a section if it contains
+; two or more files (if we only copy a single file, identify it in the
+; installer section, using the @filename notation) or if it's a color
+; profile (since the DestinationDirs can only handle sections, and not
+; individual files).
+;
+
+[UNIDRV]
+UNIDRV.DLL
+UNIRES.DLL
+UNIDRVUI.DLL
+STDNAMES.GPD
+UNIDRV.HLP
+
+[LANMON]
+EBPMON2.DLL
+
+[STM3_SYS32]
+ECBTEG.DLL
+EBPPORT.DAT
+
+[EPSETUP]
+EPUPDATE.EXE
+SETUP32.DLL
+ESCP5BC.EIF
+
+[EPSETUP_VS]
+EPUPDATE.EXE
+SETUP32.DLL
+ESCP5BC.EIF
+
+;
+; Data Sections
+;
+; These sections contain data that is shared between devices.
+;
+
+[UNIDRV_DATA_5B]
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+LanguageMonitor="EPSON V5 2KMonitor,EBPMON2.DLL"
+VendorSetup="SETUP32.DLL,UpdatePrinterApps"
+
+[UNIDRV_DATA_5C]
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+LanguageMonitor="EPSON V5 2KMonitor,EBPMON2.DLL"
+VendorSetup="SETUP32.DLL,UpdatePrinterApps"
+
+;
+; Call SetupSetDirectoryId with 66000 to set the target directory at runtime
+; (depending on which environment drivers are getting installed)
+;
+
+[DestinationDirs]
+DefaultDestDir=66000
+LANMON=66002
+STM3_SYS32=66002
+EPSETUP_VS=66002
+;
+; diskid = description,tagfile,unused,subdir
+;
+
+[SourceDisksNames.x86]
+51 = %SDN1%,,,
+52 = %SDN2%,,,
+
+
+;
+; filename_on_source = diskid,subdir,size,checksum,spare,spare
+; extra fields are nt-specific
+;
+; bootmediaord,targetdirectory,upgradedisposition,textmodedisposition,targetname
+;
+
+[SourceDisksFiles]
+ESCP5B.DLL=51,..\WIN2000
+ESCP5C.DLL=51,..\WIN2000
+ESCP5B.GPD=51,..\WIN2000
+ESCP5C.GPD=51,..\WIN2000
+EBPMON2.DLL=51,..\WIN2000
+ECBTEG.DLL=51,..\WIN2000
+EBPPORT.DAT=51,..\WIN2000
+EPUPDATE.EXE=51,..\WIN2000
+SETUP32.DLL=51,..\WIN2000
+ESCP5BC.EIF=51,..\WIN2000
+
+;
+; Localizable Strings
+;
+
+[OEM URLs]
+%EPSON%			= %EPSONURL%
+
+[Strings]
+EPSON="EPSON"
+EPSONURL		= "http://www.epson.com.cn/e_support/"
+SDN1="EPSON LQ-580K+ ESC/P 2 打印机驱动安装盘 1"
+SDN2="EPSON LQ-580K+ ESC/P 2 打印机驱动安装盘 2"

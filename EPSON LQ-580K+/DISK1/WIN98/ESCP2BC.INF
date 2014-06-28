@@ -1,0 +1,70 @@
+[version]
+signature="$CHICAGO$"
+ver=00.00.00
+Class=printer
+Provider="Epson"
+LayoutFile=layout.inf,layout1.inf,layout2.inf
+
+[SourceDisksNames]
+91 = %SDN1%,,,
+92 = %SDN2%,,,
+
+
+[Manufacturer]
+Epson=Epson
+
+[Epson]
+"EPSON LQ-580K+ ESC/P 2"=ESCP2B.DRV,LPTENUM\EPSONLQ-580K+5EC4,EPSONLQ-580K+5EC4,EPSON_LQ-580
+
+[ESCP2B.DRV]
+DriverFile=ESCP2B.DRV
+DataFile=ESCP2B.DRV
+CopyFiles=@ESCP2B.DRV,UNI_FILES,LANMON,STM3,EPSETUP
+HelpFile=UNIDRV.HLP
+DefaultDataType=EMF
+LanguageMonitor="EPSON V5 Monitor,EBPMON.DLL"
+VendorSetup="SETUP32.DLL,UpdatePrinterApps"
+
+[ESCP2C.DRV]
+DriverFile=ESCP2C.DRV
+DataFile=ESCP2C.DRV
+CopyFiles=@ESCP2C.DRV,UNI_FILES,LANMON,STM3,EPSETUP
+HelpFile=UNIDRV.HLP
+DefaultDataType=EMF
+LanguageMonitor="EPSON V5 Monitor,EBPMON.DLL"
+VendorSetup="SETUP32.DLL,UpdatePrinterApps"
+
+[UNI_FILES]
+UNIDRV.DLL
+UNIDRV.HLP
+ICONLIB.DLL
+
+[LANMON]
+EBPMON.DLL
+
+[STM3]
+ECBTEG.DLL
+EBPPORT.DAT
+
+[EPSETUP]
+EPUPDATE.EXE
+SETUP32.DLL
+ESCP2BC.EIF
+
+[SourceDisksFiles]
+ESCP2B.DRV=92,..\WIN98
+ESCP2C.DRV=92,..\WIN98
+EBPMON.DLL=92,..\WIN98
+ECBTEG.DLL=92,..\WIN98
+EBPPORT.DAT=92,..\WIN98
+EPUPDATE.EXE=92,..\WIN98
+SETUP32.DLL=92,..\WIN98
+ESCP2BC.EIF=92,..\WIN98
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[Strings]
+SDN1="EPSON LQ-580K+ ESC/P 2 打印机驱动安装盘 1"
+SDN2="EPSON LQ-580K+ ESC/P 2 打印机驱动安装盘 2"
+

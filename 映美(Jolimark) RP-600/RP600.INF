@@ -1,0 +1,121 @@
+;       Copyright (c) 2011 Jolimark
+;
+;	Printer Installation File
+;	List of supported printers, manufacturers
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%ProviderName%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+CatalogFile=RP600.CAT
+Class=Printer
+DriverVer=02/28/2010, 1.1.0.0
+
+
+[Manufacturer]
+%Providername%= Jolimark, NTx86.6.0, NTamd64.5.1, NTIA64.5.1
+
+[Jolimark]
+"Jolimark RP-600" = RP600.files,LPTENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files,SERENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files,USBPRINT\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+
+[Jolimark.NTx86.6.0]
+"Jolimark RP-600" = RP600.files,LPTENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files,SERENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files,USBPRINT\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+
+[Jolimark.NTamd64.5.1]
+"Jolimark RP-600" = RP600.files64,LPTENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files64,SERENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files64,USBPRINT\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+
+[Jolimark.NTIA64.5.1]
+"Jolimark RP-600" = RP600.files64,LPTENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files64,SERENUM\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+"Jolimark RP-600" = RP600.files64,USBPRINT\Jolimark_RP-6002D15,Jolimark_RP-6002D15
+
+[UNIDRV_DATA1]
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+
+[RP600.files]
+CopyFiles=@RP600.Dll,@RP600.GPD,OEM_SETUP,@jmSettings.ini,@jmSettingsui.dll,@RP-600_Settings.Dat
+DataSection=UNIDRV_DATA1
+DataFile=RP600.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+AddReg=UninstInfo.AddReg
+
+[RP600.files64]
+CopyFiles=@RP600.Dll,@RP600.GPD,OEM_SETUP,@jmSettings.ini,@jmSettingsui.dll,@RP-600_Settings.Dat
+DataSection=UNIDRV_DATA1
+DataFile=RP600.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+AddReg=UninstInfo.AddReg64
+
+[UninstInfo.AddReg]
+HKLM,"%UNINSTKEY%","caption",0x00000000,"%UNINSTCAPTION%"
+HKLM,"%UNINSTKEY%","DisplayName",0x00000000,"%UNINSTDISPLAY%"
+HKLM,"%UNINSTKEY%","UninstallString",0x00000000,"%52%\3\JmPrnUni.exe"
+HKLM,"%UNINSTKEY%\PrinterDrivers\%DRVNAME%","Leave OEM INF",0x00010001,0x00000001
+
+[UninstInfo.AddReg64]
+HKLM,"%UNINSTKEY64%","caption",0x00000000,"%UNINSTCAPTION%"
+HKLM,"%UNINSTKEY64%","DisplayName",0x00000000,"%UNINSTDISPLAY%"
+HKLM,"%UNINSTKEY64%","UninstallString",0x00000000,"%52%\3\JmPrnUni.exe"
+HKLM,"%UNINSTKEY64%\PrinterDrivers\%DRVNAME%","Leave OEM INF",0x00010001,0x00000001
+
+[OEM_SETUP]
+JmPrnUni.exe,,,0x20
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames]
+81 = %disk1%,,,\i386
+
+[SourceDisksNames.x86]
+1 = %disk1%,,,\i386
+
+[SourceDisksNames.amd64]
+1 = %disk1%,,,\X64
+
+[SourceDisksNames.IA64]
+1 = %disk1%,,,\IA64
+
+[SourceDisksFiles]
+RP600.Dll = 1
+RP600.GPD = 81
+JmPrnUni.exe = 81
+RP-600_Settings.Dat = 81
+jmSettings.ini = 1
+jmSettingsui.dll = 1
+
+[OEM URLs]
+%ProviderName% = %ProviderURL%
+
+[Strings]
+PrinterClassName = "Printers"
+ProviderName = "Jolimark"
+ProviderURL = "http://www.Jolimark.com.cn"
+disk1 = "Jolimark Printer Driver Setup Disk"
+DRVNAME = "Jolimark RP-600"
+UNINSTKEY = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTKEY64 = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTCAPTION = "Jolimark Printer Drivers UnInstaller"
+UNINSTDISPLAY = "Remove Jolimark Printer Drivers"
+
+[Strings.0804]
+PrinterClassName = "Printers"
+ProviderName = "Jolimark"
+ProviderURL = "http://www.Jolimark.com.cn"
+disk1 = "Jolimark Printer Driver Setup Disk"
+DRVNAME = "Jolimark RP-600"
+UNINSTKEY = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTKEY64 = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTCAPTION = "映美打印机系列卸载程序"
+UNINSTDISPLAY = "映美打印机系列卸载程序"

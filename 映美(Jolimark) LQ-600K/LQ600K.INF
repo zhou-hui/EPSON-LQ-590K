@@ -1,0 +1,110 @@
+;       Copyright (c) 2009 Jolimark
+;
+;	Printer Installation File
+;	List of supported printers, manufacturers
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%ProviderName%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+CatalogFile=600K.CAT
+Class=Printer
+DriverVer=01/15/2010, 1.0.0.0
+
+
+[Manufacturer]
+%Providername%= Jolimark, NTx86.6.0, NTamd64.5.1, NTIA64.5.1
+
+[Jolimark]
+"Jolimark LQ-600K" = 600K.files,LPTENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files,SERENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files,USBPRINT\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+
+[Jolimark.NTx86.6.0]
+"Jolimark LQ-600K" = 600K.files,LPTENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files,SERENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files,USBPRINT\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+
+[Jolimark.NTamd64.5.1]
+"Jolimark LQ-600K" = 600K.files64,LPTENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files64,SERENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files64,USBPRINT\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+
+[Jolimark.NTIA64.5.1]
+"Jolimark LQ-600K" = 600K.files64,LPTENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files64,SERENUM\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+"Jolimark LQ-600K" = 600K.files64,USBPRINT\Jolimark_LQ-600KE8F2,Jolimark_LQ-300KE8F2
+
+[UNIDRV_DATA1]
+DriverFile=UNIDRV.DLL
+ConfigFile=UNIDRVUI.DLL
+HelpFile=UNIDRV.HLP
+
+[600K.files]
+CopyFiles=@600K.Dll,@600K.GPD,OEM_SETUP,@jmSettings.ini,@jmSettingsui.dll,@LQ-600K_Settings.Dat
+DataSection=UNIDRV_DATA1
+DataFile=600K.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+AddReg=UninstInfo.AddReg
+
+[600K.files64]
+CopyFiles=@600K.Dll,@600K.GPD,OEM_SETUP,@jmSettings.ini,@jmSettingsui.dll,@LQ-600K_Settings.Dat
+DataSection=UNIDRV_DATA1
+DataFile=600K.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+AddReg=UninstInfo.AddReg64
+
+[UninstInfo.AddReg]
+HKLM,"%UNINSTKEY%","caption",0x00000000,"%UNINSTCAPTION%"
+HKLM,"%UNINSTKEY%","DisplayName",0x00000000,"%UNINSTDISPLAY%"
+HKLM,"%UNINSTKEY%","UninstallString",0x00000000,"%52%\3\JmPrnUni.exe"
+HKLM,"%UNINSTKEY%\PrinterDrivers\%DRVNAME%","Leave OEM INF",0x00010001,0x00000001
+
+[UninstInfo.AddReg64]
+HKLM,"%UNINSTKEY64%","caption",0x00000000,"%UNINSTCAPTION%"
+HKLM,"%UNINSTKEY64%","DisplayName",0x00000000,"%UNINSTDISPLAY%"
+HKLM,"%UNINSTKEY64%","UninstallString",0x00000000,"%52%\3\JmPrnUni.exe"
+HKLM,"%UNINSTKEY64%\PrinterDrivers\%DRVNAME%","Leave OEM INF",0x00010001,0x00000001
+
+[OEM_SETUP]
+JmPrnUni.exe,,,0x20
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames]
+81 = %disk1%,,,\i386
+
+[SourceDisksNames.x86]
+1 = %disk1%,,,\i386
+
+[SourceDisksNames.amd64]
+1 = %disk1%,,,\X64
+
+[SourceDisksNames.IA64]
+1 = %disk1%,,,\IA64
+
+[SourceDisksFiles]
+600K.Dll = 1
+600K.GPD = 81
+JmPrnUni.exe = 81
+LQ-600K_Settings.Dat = 81
+jmSettings.ini = 1
+jmSettingsui.dll = 1
+
+[OEM URLs]
+%ProviderName% = %ProviderURL%
+
+[Strings]
+PrinterClassName = "Printers"
+ProviderName = "Jolimark"
+ProviderURL = "http://www.Jolimark.com.cn"
+disk1 = "Jolimark Printer Driver Setup Disk"
+DRVNAME = "Jolimark LQ-600K"
+UNINSTKEY = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTKEY64 = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Jolimark Printer Utilities"
+UNINSTCAPTION = "Jolimark Printer Drivers UnInstaller"
+UNINSTDISPLAY = "Remove Jolimark Printer Drivers"

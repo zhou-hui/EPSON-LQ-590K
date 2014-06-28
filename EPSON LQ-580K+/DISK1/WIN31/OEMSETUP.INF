@@ -1,0 +1,12 @@
+[disks]
+2=. ,"EPSON LQ-580K+ ESC/P 2 驱动程序盘 2"
+4=. ,"Windows 3.2 安装程序盘"
+
+[io.device]
+; (EPSON new ESC/P printer model info file)
+
+2:ESCP1C.DRV,"EPSON LQ-580K+ ESC/P 2","DEVICESPECIFIC"
+
+[io.dependent]
+	 ESCP1C.DRV   = 4:UNIDRV.DLL, 4:UNIDRV.HLP
+	

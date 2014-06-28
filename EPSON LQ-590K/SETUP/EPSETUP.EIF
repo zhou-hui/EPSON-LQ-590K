@@ -1,0 +1,110 @@
+[disks]
+1=. ,"EPSON LQ-590K/LQ-1600K IIIH ESC/P2 打印机驱动"
+
+[setup]
+caption="EPSON 打印机驱动程序安装"
+uninstall="EPSON Printer and Utilities","EPSON 打印机软件","EPUPDATE.EXE /R","卸载 EPSON 打印机工具"
+
+application=PIS_EPDRV,PIS_EPDRVW
+PIS_EPDRV="EPSON LQ-590K ESC/P2 临时文件",invisible,"@@0x26\EPSON\PrinterDriverTemp\LQ590K",PIS_EPDRV,"EPSON LQ-590K ESC/P2 临时文件","ESCP5RN.INF"
+PIS_EPDRVW="EPSON LQ-1600K IIIH ESC/P2 临时文件",invisible,"@@0x26\EPSON\PrinterDriverTemp\LQ1600K IIIH",PIS_EPDRVW,"EPSON LQ-1600K IIIH ESC/P2 临时文件","ESCP5RW.INF"
+
+copymode=2
+Nt5printer.inf=..\,..\
+Nt51printer.inf=..\,..\
+EIFVersion=5.50
+
+[LicenseAgreement]
+"EPSON LQ-590K ESC/P2"=LA
+"EPSON LQ-1600K IIIH ESC/P2"=LA
+
+[setupinfo.winnt50]
+"EPSON LQ-590K ESC/P2"=UNIDRV.DLL,EPDRV.WINNT50,EPDRV.WINNT50,EPDRV_WINNT50
+"EPSON LQ-1600K IIIH ESC/P2"=UNIDRV.DLL,EPDRVW.WINNT50,EPDRVW.WINNT50,EPDRVW_WINNT50
+
+[driverinfo]
+EPDRV.WINNT50=,,,,ESCP5RN.GPD,UNIDRVUI.DLL,UNIDRV.HLP,,"EPSON V5 2KMonitor,EBPMON2.DLL",RAW,NO
+EPDRVW.WINNT50=,,,,ESCP5RW.GPD,UNIDRVUI.DLL,UNIDRV.HLP,,"EPSON V5 2KMonitor,EBPMON2.DLL",RAW,NO
+
+[printerinfo]
+EPDRV.WINNT50=,,,LPT1:,,,,,,"WinPrint",RAW,,,0x244
+EPDRVW.WINNT50=,,,LPT1:,,,,,,"WinPrint",RAW,,,0x244
+
+[dependentinfo]
+EPDRV_WINNT50=..\,,1:ESCP5W2S.DLL,1:ESCP5RN.GPD
+EPDRV_WINNT50=..\,,UNIDRV.DLL,UNIRES.DLL,UNIDRVUI.DLL,UNIDRV.HLP,STDNAMES.GPD
+EPDRV_WINNT50=..\,0:SYSTEM32,1:EBPMON2.DLL
+EPDRV_WINNT50=..\,0:SYSTEM32,1:ECBTEG.DLL,1:EBPPORT.DAT
+EPDRV_WINNT50=..\,,1:EPUPDATE.EXE,1:SETUP32.DLL
+
+EPDRVW_WINNT50=..\,,1:ESCP5W2S.DLL,1:ESCP5RW.GPD
+EPDRVW_WINNT50=..\,,UNIDRV.DLL,UNIRES.DLL,UNIDRVUI.DLL,UNIDRV.HLP,STDNAMES.GPD
+EPDRVW_WINNT50=..\,0:SYSTEM32,1:EBPMON2.DLL
+EPDRVW_WINNT50=..\,0:SYSTEM32,1:ECBTEG.DLL,1:EBPPORT.DAT
+EPDRVW_WINNT50=..\,,1:EPUPDATE.EXE,1:SETUP32.DLL
+
+[PIS_EPDRV.winnt51]
+"EPSON LQ-590K ESC/P2"=..\,,*.*
+"EPSON LQ-590K ESC/P2"=..\,\@0xBFFF,1:EPUPDATE.EXE,1:SETUP32.DLL
+
+[PIS_EPDRVW.winnt51]
+"EPSON LQ-1600K IIIH ESC/P2"=..\,,*.*
+"EPSON LQ-1600K IIIH ESC/P2"=..\,\@0xBFFF,1:EPUPDATE.EXE,1:SETUP32.DLL
+
+[connectableports.winnt50]
+"EPSON LQ-590K ESC/P2"="LPT1,","LPT2,","LPT3,","LPT,","FILE,"
+"EPSON LQ-1600K IIIH ESC/P2"="LPT1,","LPT2,","LPT3,","LPT,","FILE,"
+
+[ignoresharedmodules.winnt50]
+"EPSON LQ-590K ESC/P2"=ECBTEG.DLL
+"EPSON LQ-1600K IIIH ESC/P2"=ECBTEG.DLL
+
+[kickmodule.winnt50]
+"EPSON LQ-590K ESC/P2"=0,",1:DEVICEOP.EXE,/W32 /MSG:2000 /MFG:'EPSON' /DES:'EPSON LQ-590K ESC/P2' /MDL:'LQ-590K' /DRV /DEV /P:'USB' /P:'LPT' /LT:0"
+
+"EPSON LQ-1600K IIIH ESC/P2"=0,",1:DEVICEOP.EXE,/W32 /MSG:2000 /MFG:'EPSON' /DES:'EPSON LQ-1600K IIIH ESC/P2' /MDL:'LQ-1600K IIIH' /DRV /DEV /P:'USB' /P:'LPT' /LT:0"
+
+[kickmodule.winnt51]
+"EPSON LQ-590K ESC/P2"=0,",OEMINF.EXE,/INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ590K\ESCP5RN.INF'"
+"EPSON LQ-590K ESC/P2"=0,",DEVICEOP.EXE,/W32 /MSG:2000 /MFG:'EPSON' /DES:'EPSON LQ-590K ESC/P2' /MDL:'LQ-590K' /DRV /PNP /INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ590K\ESCP5RN.INF' /SDP /P:'USB' /P:'LPT' /LT:0,"
+"EPSON LQ-590K ESC/P2"=0,",OEMINF.EXE,/INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ590K\ESCP5RN.INF'"
+
+"EPSON LQ-1600K IIIH ESC/P2"=0,",OEMINF.EXE,/INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ1600K IIIH\ESCP5RW.INF'"
+"EPSON LQ-1600K IIIH ESC/P2"=0,",DEVICEOP.EXE,/W32 /MSG:2000 /MFG:'EPSON' /DES:'EPSON LQ-1600K IIIH ESC/P2' /MDL:'LQ-1600K IIIH' /DRV /PNP /INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ1600K IIIH\ESCP5RW.INF' /SDP /P:'USB' /P:'LPT' /LT:0,"
+"EPSON LQ-1600K IIIH ESC/P2"=0,",OEMINF.EXE,/INF:'%ProgramFiles%\EPSON\PrinterDriverTemp\LQ1600K IIIH\ESCP5RW.INF'"
+
+[addregistry.winnt50]
+"EPSON LQ-590K ESC/P2"="0x80000002",4,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-590K ESC/P2","Leave OEM INF",0x00000001
+
+"EPSON LQ-1600K IIIH ESC/P2"="0x80000002",4,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-1600K IIIH ESC/P2","Leave OEM INF",0x00000001
+
+[addregistry.winnt51]
+PIS_EPDRV="0x80000002",4,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-590K ESC/P2","Leave OEM INF",0x00000001
+PIS_EPDRV="0x80000002",1,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-590K ESC/P2","LinkedAppName","EPSON LQ-590K ESC/P2 临时文件"
+
+PIS_EPDRVW="0x80000002",4,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-1600K IIIH ESC/P2","Leave OEM INF",0x00000001
+PIS_EPDRVW="0x80000002",1,"Software\Microsoft\Windows\CurrentVersion\Uninstall\EPSON Printer and Utilities\PrinterDrivers\EPSON LQ-1600K IIIH ESC/P2","LinkedAppName","EPSON LQ-1600K IIIH ESC/P2 临时文件"
+
+[uninstall.files.winnt]
+"EPSON LQ-590K ESC/P2"=0:,EPSTPLOG.*
+"EPSON LQ-590K ESC/P2"="@@0x26\EPSON\PrinterDriverTemp",DUMMY.FN
+"EPSON LQ-590K ESC/P2"="@@0x26\EPSON",DUMMY.FN
+
+"EPSON LQ-1600K IIIH ESC/P2"=0:,EPSTPLOG.*
+"EPSON LQ-1600K IIIH ESC/P2"="@@0x26\EPSON\PrinterDriverTemp",DUMMY.FN
+"EPSON LQ-1600K IIIH ESC/P2"="@@0x26\EPSON",DUMMY.FN
+
+[uninstall.settings.winnt]
+"EPSON LQ-590K ESC/P2"="HKEY_LOCAL_MACHINE,0x80000002","SOFTWARE\EPSON",,,1
+"EPSON LQ-1600K IIIH ESC/P2"="HKEY_LOCAL_MACHINE,0x80000002","SOFTWARE\EPSON",,,1
+
+[message]
+509="安装完成。请重新启动系统。"
+511="安装完成。"
+520="安装完成。请重新启动系统。"
+2000="打印机驱动安装和端口设置完成。"
+2001="打印机端口设置为 %PORT%.","","要在网络上使用打印机，请根据需要更改打印机端口。"
+2002="打印机端口设置为 %PORT%.","","要在网络上使用打印机，请根据需要更改打印机端口。"
+2010="打印机驱动安装和端口设置完成。","","请重新启动系统。"
+2011="打印机端口设置为 %PORT%.","","要在网络上使用打印机，请重新启动计算机然后根据需要更改打印机端口。"
+2012="打印机端口设置为 %PORT%.","","要在网络上使用打印机，请重新启动计算机然后根据需要更改打印机端口。"
